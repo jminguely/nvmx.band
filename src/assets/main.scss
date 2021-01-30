@@ -12,6 +12,7 @@ body {
   text-transform: uppercase;
   position: relative;
   font-size: 14px;
+  line-height: 1.4;
 }
 
 a {
@@ -19,7 +20,7 @@ a {
 }
 
 .spacer {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .logo {
@@ -44,7 +45,7 @@ a {
 
 table {
   td {
-    padding: 0 0.5rem 0 0;
+    padding: 0 1rem 0 0;
   }
 }
 
@@ -81,6 +82,7 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start;
 
   @media screen and (max-width: 767px) {
     display: block;
@@ -151,6 +153,7 @@ h1 {
 }
 
 h2 {
+  font-size: 1.25rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
