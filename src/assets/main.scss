@@ -1,10 +1,17 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: black;
   color: white;
   font-family: sans-serif;
-
   display: flex;
   text-transform: uppercase;
+  position: relative;
+  font-size: 14px;
 }
 
 a {
@@ -12,7 +19,12 @@ a {
 }
 
 .spacer {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  width: 6rem;
+  height: auto;
 }
 
 .striked {
@@ -20,36 +32,87 @@ a {
 }
 
 .btn {
-  font-size: 1em;
+  font-size: 0.7rem;
   background: white;
   color: black;
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.35em 0.4em;
   text-transform: uppercase;
   font-weight: 700;
-  margin: 0.5em 0.5em 0 0;
+  margin: 0.5em 0;
 }
 
-.main-content {
-  position: relative;
-  margin: auto;
-  z-index: 0;
-  padding: 2rem 0 5rem;
+table {
+  td {
+    padding: 0 0.5rem 0 0;
+  }
 }
 
-.site-header {
-  padding: 32vh 0;
+.grid-container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  box-sizing: border-box;
+  padding: 2rem;
+  grid-template-areas:
+    'area1 . area2'
+    '. . .'
+    'area3 . area4';
+
+  @media screen and (max-width: 767px) {
+    grid-template-areas:
+      'area1 area2'
+      'area3 area3'
+      'area4 area4';
+  }
+}
+
+.grid-area1 {
+  grid-area: area1;
+}
+
+.grid-area2 {
+  grid-area: area2;
+  text-align: right;
+}
+
+.grid-area3 {
+  grid-area: area3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 767px) {
+    display: block;
+    margin-top: 2rem;
+  }
+}
+
+.grid-area4 {
+  grid-area: area4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+
+  @media screen and (max-width: 767px) {
+    display: block;
+    margin-top: 2rem;
+    text-align: left;
+  }
 }
 
 .bg-layers {
-  position: fixed;
+  position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  opacity: 0.25;
-  z-index: 0;
+  width: 100%;
+  min-height: 100% !important;
+  z-index: -1;
   pointer-events: none;
+  overflow: hidden;
+  opacity: 0.5;
 
   .bg-white {
     background: white;
@@ -61,12 +124,14 @@ a {
 
   .bg-layer {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: block;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    right: -25%;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
     object-fit: cover;
+    display: block;
     mix-blend-mode: difference;
   }
 }
@@ -77,5 +142,27 @@ a {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.6em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+  h3 {
+    font-size: 1.2em;
   }
 }
