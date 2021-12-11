@@ -32,6 +32,10 @@ a {
   text-decoration: line-through;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .btn {
   font-size: 0.7rem;
   background: white;
@@ -49,7 +53,7 @@ a {
 
 table {
   td {
-    padding: 0 1rem 0 0;
+    padding: 0 0 0 1rem;
   }
 }
 
@@ -60,15 +64,23 @@ table {
   box-sizing: border-box;
   padding: 2rem;
   grid-template-areas:
-    'area1 . area2'
-    '. . .'
-    'area3 . area4';
+    "area1 . area2"
+    ". . ."
+    "area3 . area4";
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 900px) {
     grid-template-areas:
-      'area1 area2'
-      'area3 area3'
-      'area4 area4';
+      "area1 area2"
+      "area3 area3"
+      "area4 area4";
+  }
+
+  @media screen and (max-width: 700px) {
+    grid-template-areas:
+      "area1"
+      "area2"
+      "area3"
+      "area4";
   }
 }
 
